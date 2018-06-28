@@ -12,8 +12,8 @@ router.get('/', function (req, res, next) {
 
   // Run the proper function handler based on the matched Dialogflow intent name
   let intentMap = new Map();
-  intentMap.set(INTENTS.WELCOME, welcome);
-  intentMap.set(INTENTS.FALLBACK, fallback);
+  intentMap.set(INTENTS.WELCOME, require('../intents/welcome_intent'));
+  intentMap.set(INTENTS.FALLBACK, require('../intents/fallback_intent'));
   agent.handleRequest(intentMap);
 });
 
